@@ -11,9 +11,9 @@ export class Seller {
     @JoinColumn()
     account: Account;
 
-    @Column({length: 25})
+    @Column({ length: 25 })
     birthdate: string;
 
-    @Column({length: 100, unique: true})
+    @Column({ length: 100, unique: true })
     email: string;
 }

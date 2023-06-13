@@ -1,6 +1,6 @@
-import { Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
+import { Entity, JoinColumn, OneToOne, PrimaryColumn } from 'typeorm';
 
-import { Account } from "src/account/account.entity";
+import { Account } from 'src/account/account.entity';
 
 @Entity()
 export class Customer {

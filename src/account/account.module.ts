@@ -6,9 +6,7 @@ import { Account } from './account.entity';
 import { AccountAddress } from './address.entity';
 
 @Module({
-  providers: [AccountService],
-  imports: [
-    TypeOrmModule.forFeature([Account, AccountAddress])
-  ]
+    providers: [AccountService],
+    imports: [TypeOrmModule.forFeature([Account, AccountAddress])],
 })
 export class AccountModule {}

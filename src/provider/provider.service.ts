@@ -5,7 +5,6 @@ import { Provider } from './provider.entity';
 
 @Injectable()
 export class ProviderService {
-
     constructor(private readonly providerRepository: ProviderRepository) {}
 
     async findAll(): Promise<Array<Provider>> {

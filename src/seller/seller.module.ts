@@ -9,11 +9,8 @@ import { SellerRepository } from './seller.repository';
 import { SellerService } from './seller.service';
 
 @Module({
-  controllers: [SellerController],
-  imports: [
-    AccountModule,
-    TypeOrmModule.forFeature([Seller])
-  ],
-  providers: [SellerRepository, SellerService]
+    controllers: [SellerController],
+    imports: [AccountModule, TypeOrmModule.forFeature([Seller])],
+    providers: [SellerRepository, SellerService],
 })
 export class SellerModule {}

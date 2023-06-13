@@ -1,19 +1,19 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-import { BranchOffice } from "src/branchoffice/branchoffice.entity";
+import { BranchOffice } from 'src/branchoffice/branchoffice.entity';
 
 @Entity()
 export class Product {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({length: 50, unique: true})
+    @Column({ length: 50, unique: true })
     name: string;
 
-    @Column({type: 'double'})
+    @Column({ type: 'double' })
     price: number;
 
-    @Column({type: 'integer'})
+    @Column({ type: 'integer' })
     stock: number;
 
     @OneToOne(() => BranchOffice)

@@ -7,8 +7,8 @@ import { BranchofficeService } from './branchoffice.service';
 import { BranchOfficeRepository } from './branchoffice.repository';
 
 @Module({
-  controllers: [BranchofficeController],
-  imports: [TypeOrmModule.forFeature([BranchOffice])],
-  providers: [BranchOfficeRepository, BranchofficeService]
+    controllers: [BranchofficeController],
+    imports: [TypeOrmModule.forFeature([BranchOffice])],
+    providers: [BranchOfficeRepository, BranchofficeService],
 })
 export class BranchofficeModule {}

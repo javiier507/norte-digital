@@ -7,19 +7,19 @@ export class Provider {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({unique: true, length: 50})
+    @Column({ unique: true, length: 50 })
     rut: string;
 
-    @Column({length: 100})
+    @Column({ length: 100 })
     name: string;
 
     @OneToOne(() => ProviderAddress)
     @JoinColumn()
     address: ProviderAddress;
 
-    @Column({length: 25})
+    @Column({ length: 25 })
     telephone: string;
 
-    @Column({nullable: true})
+    @Column({ nullable: true })
     webPage: string;
 }

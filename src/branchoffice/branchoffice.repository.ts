@@ -6,7 +6,9 @@ import { BranchOffice } from './branchoffice.entity';
 
 @Injectable()
 export class BranchOfficeRepository {
-    constructor(@InjectRepository(BranchOffice) private readonly repository: Repository<BranchOffice>) {}
+    constructor(
+        @InjectRepository(BranchOffice) private readonly repository: Repository<BranchOffice>,
+    ) {}
 
     async findAll(): Promise<Array<BranchOffice>> {
         return this.repository.find();

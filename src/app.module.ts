@@ -15,7 +15,7 @@ import { ProductModule } from './product/product.module';
 @Module({
     imports: [
         ConfigModule.forRoot({
-            isGlobal: true
+            isGlobal: true,
         }),
         TypeOrmModule.forRoot({
             type: 'mysql',
@@ -26,7 +26,7 @@ import { ProductModule } from './product/product.module';
             database: process.env.MYSQL_DATABASE,
             autoLoadEntities: true,
             synchronize: configuration.IS_DEV,
-            logging: configuration.IS_DEV
+            logging: configuration.IS_DEV,
         }),
         ProviderModule,
         SellerModule,

@@ -5,7 +5,6 @@ import { Provider } from './provider.entity';
 
 @Controller('provider')
 export class ProviderController {
-
     constructor(private readonly providerService: ProviderService) {}
 
     @Get()
