@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { BranchOffice } from 'src/branchoffice/branchoffice.entity';
 
@@ -16,7 +16,7 @@ export class Product {
     @Column({ type: 'integer' })
     stock: number;
 
-    @OneToOne(() => BranchOffice)
+    @ManyToOne(() => BranchOffice, {nullable: true})
     @JoinColumn()
     branchOffice: BranchOffice;
 }

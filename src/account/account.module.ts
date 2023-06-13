@@ -2,8 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AccountService } from './account.service';
-import { Account } from './account.entity';
-import { AccountAddress } from './address.entity';
+import { Account, AccountAddress } from './account.entity';
 
 @Module({
     providers: [AccountService],

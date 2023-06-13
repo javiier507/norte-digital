@@ -1,6 +1,21 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+@Entity()
+export class ProviderAddress {
+    @PrimaryGeneratedColumn()
+    id: number;
 
-import { ProviderAddress } from './address.entity';
+    @Column({ length: 50 })
+    street: string;
+
+    @Column()
+    number: number;
+
+    @Column({ length: 50 })
+    neighborhood: string;
+
+    @Column({ length: 25 })
+    city: string;
+}
 
 @Entity()
 export class Provider {
