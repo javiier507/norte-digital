@@ -6,6 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProviderModule } from './provider/provider.module';
 import { configuration } from './config/configuration';
+import { SellerModule } from './seller/seller.module';
 
 @Module({
     imports: [
@@ -24,6 +25,7 @@ import { configuration } from './config/configuration';
             logging: configuration.IS_DEV
         }),
         ProviderModule,
+        SellerModule,
     ],
     controllers: [AppController],
     providers: [AppService],
