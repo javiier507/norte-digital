@@ -1,25 +1,31 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+
+import { SellerAddress } from './address.entity';
 
 @Entity()
 export class Seller {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({unique: true, length: 50})
     rut: string;
 
-    @Column()
+    @Column({length: 50})
     name: string;
 
-    @Column()
-    address: string;
+    @Column({length: 50})
+    lastname: string;
 
-    @Column()
+    @OneToOne(() => SellerAddress)
+    @JoinColumn()
+    address: SellerAddress;
+
+    @Column({length: 25})
     telephone: string;
 
-    @Column()
+    @Column({length: 25})
     birthdate: string;
 
-    @Column()
+    @Column({length: 100, unique: true})
     email: string;
 }
