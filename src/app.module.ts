@@ -10,6 +10,7 @@ import { SellerModule } from './seller/seller.module';
 import { BranchofficeModule } from './branchoffice/branchoffice.module';
 import { AccountModule } from './account/account.module';
 import { CustomerModule } from './customer/customer.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
     imports: [
@@ -32,6 +33,7 @@ import { CustomerModule } from './customer/customer.module';
         BranchofficeModule,
         AccountModule,
         CustomerModule,
+        ProductModule,
     ],
     controllers: [AppController],
     providers: [AppService],
