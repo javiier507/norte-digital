@@ -8,6 +8,7 @@ import { ProviderModule } from './provider/provider.module';
 import { configuration } from './config/configuration';
 import { SellerModule } from './seller/seller.module';
 import { BranchofficeModule } from './branchoffice/branchoffice.module';
+import { AccountModule } from './account/account.module';
 
 @Module({
     imports: [
@@ -28,6 +29,7 @@ import { BranchofficeModule } from './branchoffice/branchoffice.module';
         ProviderModule,
         SellerModule,
         BranchofficeModule,
+        AccountModule,
     ],
     controllers: [AppController],
     providers: [AppService],

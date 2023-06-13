@@ -1,27 +1,15 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, OneToOne, JoinColumn, PrimaryColumn } from 'typeorm';
 
-import { SellerAddress } from './address.entity';
+import { Account } from 'src/account/account.entity';
 
 @Entity()
 export class Seller {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryColumn()
+    accountId: number;
 
-    @Column({unique: true, length: 50})
-    rut: string;
-
-    @Column({length: 50})
-    name: string;
-
-    @Column({length: 50})
-    lastname: string;
-
-    @OneToOne(() => SellerAddress)
+    @OneToOne(() => Account)
     @JoinColumn()
-    address: SellerAddress;
-
-    @Column({length: 25})
-    telephone: string;
+    account: Account;
 
     @Column({length: 25})
     birthdate: string;
