@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { SaleRepository } from './sale.repository';
-import { Sale as SaleDto, SaleItem as SaleItemDto } from './sale.dto';
+import { Sale as SaleDto } from './sale.dto';
 import { Sale, SaleItem } from './sale.entity';
 
 @Injectable()
