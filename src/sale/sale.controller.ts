@@ -1,7 +1,7 @@
 import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 
 import { SaleService } from './sale.service';
-import { Sale } from './sale.dto';
+import { Sale } from './dto/sale.request';
 
 @Controller('sale')
 export class SaleController {
