@@ -1,6 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { BranchOffice } from 'src/branchoffice/branchoffice.entity';
+import { Provider } from 'src/provider/provider.entity';
 
 @Entity()
 export class Product {
@@ -15,6 +16,10 @@ export class Product {
 
     @Column({ type: 'integer' })
     stock: number;
+
+    @ManyToOne(() => Provider)
+    @JoinColumn()
+    provider: Provider;
 
     @ManyToOne(() => BranchOffice, {nullable: true})
     @JoinColumn()

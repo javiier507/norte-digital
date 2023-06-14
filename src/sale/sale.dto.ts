@@ -36,6 +36,6 @@ export class Sale {
     customer: Customer;
     @ApiProperty({description: 'Sucursal', nullable: false, type: BranchOffice})
     branchOffice: BranchOffice;
-    @ApiProperty({description: 'Lista de productos a vender', nullable: true, type: [SaleItem]})
+    @ApiProperty({description: 'Lista de productos a vender', nullable: true, type: [SaleItem], minimum: 1})
     items: SaleItem[];
 }

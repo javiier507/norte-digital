@@ -10,6 +10,7 @@ export class SaleController {
     @Post()
     @HttpCode(201)
     async create(@Body() sale: Sale): Promise<any> {
+        this.service.create(sale);
         return 'ola k ase';
     }
 }

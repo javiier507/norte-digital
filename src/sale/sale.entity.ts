@@ -13,13 +13,22 @@ export class Sale {
     @Column({type: 'date'})
     date: string;
 
+    @Column({name: 'sellerAccountId'})
+    sellerId: number;
+
     @ManyToOne(() => Seller)
     @JoinColumn()
     seller: Seller;
 
+    @Column({name: 'customerAccountId'})
+    customerId: number;
+
     @ManyToOne(() => Customer)
     @JoinColumn()
     customer: Customer;
+
+    @Column({name: 'branchOfficeId'})
+    branchOfficeId: number;
 
     @ManyToOne(() => BranchOffice)
     @JoinColumn()
@@ -36,6 +45,9 @@ export class SaleItem {
 
     @Column({type: 'integer'})
     quantity: number;
+
+    @Column({name: 'productId'})
+    productId: number;
 
     @ManyToOne(() => Product)
     @JoinColumn()
