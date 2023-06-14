@@ -20,4 +20,12 @@ export class SaleRepository {
             await transactionalEntityManager.save(saleItemsMapped);
         });
     }
+
+    async findByDate(date: string): Promise<Sale[]> {
+        return this.repository.find({
+            where: {
+                date: date
+            }
+        });
+    }
 }
