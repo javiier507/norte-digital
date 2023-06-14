@@ -1,4 +1,4 @@
-import { BadRequestException, Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, InternalServerErrorException, Post, Query } from '@nestjs/common';
 
 import { SaleService } from './sale.service';
 import { Sale as SaleRequest } from './dto/sale.request';
@@ -20,6 +20,8 @@ export class SaleController {
             if(error instanceof EntityNotFoundException) {                
                 throw new BadRequestException(error.message);
             }
+
+            throw new InternalServerErrorException();
         }
     }
 

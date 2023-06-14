@@ -39,7 +39,7 @@ export class SaleService {
             return saleItem; 
         });
 
-        this.saleRepositoru.create(sale, saleItems);
+        return this.saleRepositoru.create(sale, saleItems);
     }
 
     async findByDate(date: string): Promise<SaleResponse[]> {
