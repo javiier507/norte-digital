@@ -29,7 +29,7 @@ export class StarterService implements OnModuleInit {
     async onModuleInit() {
         
         let provider = new Provider();
-        await this.runIterations(0, async () => {
+        await this.runIterations(100, async () => {
             let providerAddress = new ProviderAddress();
             providerAddress.street = faker.location.street();
             providerAddress.number = 12;
@@ -46,13 +46,13 @@ export class StarterService implements OnModuleInit {
         });
 
         let branchOffice = new BranchOffice();
-        await this.runIterations(0, async () => {
+        await this.runIterations(10, async () => {
             branchOffice.country = faker.location.country();
             branchOffice = await this.branchOfficeRepositoy.create(branchOffice);
         });
 
         let product = new Product();
-        await this.runIterations(0, async () => {
+        await this.runIterations(110, async () => {
             product.name = faker.commerce.productName();
             product.price = 12;
             product.stock = 20;
@@ -61,7 +61,7 @@ export class StarterService implements OnModuleInit {
         });
 
         let seller = new Seller();
-        await this.runIterations(0, async () => {
+        await this.runIterations(20, async () => {
             let accountAdress = new AccountAddress();
             accountAdress.street = faker.location.street();
             accountAdress.number = 43;
@@ -84,7 +84,7 @@ export class StarterService implements OnModuleInit {
         });
 
         let customer = new Customer();
-        await this.runIterations(0, async () => {
+        await this.runIterations(100, async () => {
             let accountAdress = new AccountAddress();
             accountAdress.street = faker.location.street();
             accountAdress.number = 25;
@@ -104,7 +104,7 @@ export class StarterService implements OnModuleInit {
             customer = await this.customerRepository.create(customer);
         });
 
-        await this.runIterations(0, async () => {
+        await this.runIterations(100, async () => {
             let sale = new Sale();
             sale.date = '2020-12-18';
             sale.customer = customer;
@@ -128,7 +128,7 @@ export class StarterService implements OnModuleInit {
     }
 
     private async runIterations(iteration: number, callback) {
-        for(let i = 0; i <= iteration; i++) {
+        for(let i = 0; i < iteration; i++) {
             await callback();
         }
     }
