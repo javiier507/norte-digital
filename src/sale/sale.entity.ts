@@ -1,40 +1,40 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-import { Seller } from "src/seller/seller.entity";
-import { Customer } from "src/customer/customer.entity";
-import { BranchOffice } from "src/branchoffice/branchoffice.entity";
-import { Product } from "src/product/product.entity";
+import { Seller } from 'src/seller/seller.entity';
+import { Customer } from 'src/customer/customer.entity';
+import { BranchOffice } from 'src/branchoffice/branchoffice.entity';
+import { Product } from 'src/product/product.entity';
 
 @Entity()
 export class Sale {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type: 'date'})
+    @Column({ type: 'date' })
     date: string;
 
-    @Column({name: 'sellerAccountId'})
+    @Column({ name: 'sellerAccountId' })
     sellerId: number;
 
-    @ManyToOne(() => Seller, {eager: true})
+    @ManyToOne(() => Seller, { eager: true })
     seller: Seller;
 
-    @Column({name: 'customerAccountId'})
+    @Column({ name: 'customerAccountId' })
     customerId: number;
 
-    @ManyToOne(() => Customer, {eager: true})
+    @ManyToOne(() => Customer, { eager: true })
     customer: Customer;
 
-    @Column({name: 'branchOfficeId'})
+    @Column({ name: 'branchOfficeId' })
     branchOfficeId: number;
 
-    @ManyToOne(() => BranchOffice, {eager: true})
+    @ManyToOne(() => BranchOffice, { eager: true })
     branchOffice: BranchOffice;
 
-    @Column({type: 'double'})
+    @Column({ type: 'double' })
     total: number;
 
-    @OneToMany(() => SaleItem, (x) => x.sale, {eager: true})
+    @OneToMany(() => SaleItem, (x) => x.sale, { eager: true })
     items: SaleItem[];
 }
 
@@ -43,18 +43,18 @@ export class SaleItem {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type: 'integer'})
+    @Column({ type: 'integer' })
     quantity: number;
 
-    @Column({name: 'saleId'})
+    @Column({ name: 'saleId' })
     saleId: number;
 
     @ManyToOne(() => Sale)
     sale: Sale;
 
-    @Column({name: 'productId'})
+    @Column({ name: 'productId' })
     productId: number;
 
-    @ManyToOne(() => Product, {eager: true})
+    @ManyToOne(() => Product, { eager: true })
     product: Product;
 }

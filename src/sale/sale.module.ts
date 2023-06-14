@@ -16,9 +16,10 @@ import { BranchofficeModule } from 'src/branchoffice/branchoffice.module';
         TypeOrmModule.forFeature([Sale, SaleItem]),
         CustomerModule,
         SellerModule,
-        BranchofficeModule
+        BranchofficeModule,
     ],
     providers: [SaleRepository, SaleService],
-    controllers: [SaleController]
+    controllers: [SaleController],
+    exports: [SaleRepository]
 })
 export class SaleModule {}

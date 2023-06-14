@@ -13,6 +13,10 @@ export class CustomerRepository {
     }
 
     async exist(accountId: number): Promise<boolean> {
-        return await this.repository.countBy({accountId}) > 0;
+        return (await this.repository.countBy({ accountId })) > 0;
+    }
+
+    async create(customer: Customer): Promise<Customer> {
+        return this.repository.save(customer);
     }
 }

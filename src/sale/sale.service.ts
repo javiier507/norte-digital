@@ -3,7 +3,14 @@ import { Injectable } from '@nestjs/common';
 import { SaleRepository } from './sale.repository';
 import { Sale, SaleItem } from './sale.entity';
 import { Sale as SaleRequest } from './dto/sale.request';
-import { Sale as SaleResponse, SaleItem as SaleItemResponse, Product as ProductResponse, BranchOffice as BranchOfficeResponse, Customer as CustomerResponse, Seller as SellerResponse } from './dto/sale.response';
+import {
+    Sale as SaleResponse,
+    SaleItem as SaleItemResponse,
+    Product as ProductResponse,
+    BranchOffice as BranchOfficeResponse,
+    Customer as CustomerResponse,
+    Seller as SellerResponse,
+} from './dto/sale.response';
 import { EntityNotFoundException } from 'src/shared/exceptions';
 import { CustomerRepository } from 'src/customer/customer.repository';
 import { SellerRepository } from 'src/seller/seller.repository';
@@ -15,28 +22,31 @@ export class SaleService {
         private readonly saleRepositoru: SaleRepository,
         private readonly customerRepository: CustomerRepository,
         private readonly sellerRepository: SellerRepository,
-        private readonly branchOfficeRepository: BranchOfficeRepository
-    ){}
+        private readonly branchOfficeRepository: BranchOfficeRepository,
+    ) {}
 
     async create(saleDto: SaleRequest): Promise<void> {
-        if(!await this.customerRepository.exist(saleDto.customer.id)) throw new EntityNotFoundException('ID del cliente invalido');
+        if (!(await this.customerRepository.exist(saleDto.customer.id)))
+            throw new EntityNotFoundException('ID del cliente invalido');
 
-        if(!await this.sellerRepository.exist(saleDto.seller.id)) throw new EntityNotFoundException('ID del vendedor invalido');
+        if (!(await this.sellerRepository.exist(saleDto.seller.id)))
+            throw new EntityNotFoundException('ID del vendedor invalido');
 
-        if(!await this.branchOfficeRepository.exist(saleDto.branchOffice.id)) throw new EntityNotFoundException('ID de la sucursal invalido');
+        if (!(await this.branchOfficeRepository.exist(saleDto.branchOffice.id)))
+            throw new EntityNotFoundException('ID de la sucursal invalido');
 
         let sale = new Sale();
         sale.date = saleDto.date;
         sale.customerId = saleDto.customer.id;
-        sale.sellerId= saleDto.seller.id;
+        sale.sellerId = saleDto.seller.id;
         sale.branchOfficeId = saleDto.branchOffice.id;
         sale.total = 0; // computed value
 
-        const saleItems: SaleItem[] = saleDto.items.map(item => {
+        const saleItems: SaleItem[] = saleDto.items.map((item) => {
             const saleItem = new SaleItem();
             saleItem.quantity = item.quantity;
             saleItem.productId = item.product.id;
-            return saleItem; 
+            return saleItem;
         });
 
         return this.saleRepositoru.create(sale, saleItems);
@@ -86,8 +96,11 @@ export class SaleService {
         sale.customer = customer;
         sale.branchOffice = branchOffice;
         sale.items = salesItems;
-        sale.total = salesItems.reduce((prev, current) => prev + (current.product.price * current.quantity), 0);
-        
+        sale.total = salesItems.reduce(
+            (prev, current) => prev + current.product.price * current.quantity,
+            0,
+        );
+
         return sale;
     }
 }

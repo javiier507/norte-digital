@@ -10,5 +10,6 @@ import { ProviderService } from './provider.service';
     controllers: [ProviderController],
     imports: [TypeOrmModule.forFeature([ProviderAddress, Provider])],
     providers: [ProviderRepository, ProviderService],
+    exports: [ProviderRepository]
 })
 export class ProviderModule {}

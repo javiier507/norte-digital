@@ -11,5 +11,6 @@ import { ProductRepository } from './product.repository';
     imports: [BranchOffice, TypeOrmModule.forFeature([Product])],
     providers: [ProductRepository, ProductService],
     controllers: [ProductController],
+    exports: [ProductRepository]
 })
 export class ProductModule {}

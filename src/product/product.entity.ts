@@ -8,7 +8,7 @@ export class Product {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length: 50, unique: true })
+    @Column({ length: 50, unique: false })
     name: string;
 
     @Column({ type: 'double' })
@@ -21,7 +21,7 @@ export class Product {
     @JoinColumn()
     provider: Provider;
 
-    @ManyToOne(() => BranchOffice, {nullable: true})
+    @ManyToOne(() => BranchOffice, { nullable: true })
     @JoinColumn()
     branchOffice: BranchOffice;
 }

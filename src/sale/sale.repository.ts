@@ -9,12 +9,12 @@ export class SaleRepository {
     constructor(@InjectRepository(Sale) private readonly repository: Repository<Sale>) {}
 
     async create(sale: Sale, saleItems: SaleItem[]): Promise<void> {
-        return this.repository.manager.transaction(async transactionalEntityManager => {
+        return this.repository.manager.transaction(async (transactionalEntityManager) => {
             const saleInserted = await transactionalEntityManager.save(sale);
-            const saleItemsMapped: SaleItem[] = saleItems.map(item => {
+            const saleItemsMapped: SaleItem[] = saleItems.map((item) => {
                 let saleItem = new SaleItem();
                 saleItem = item;
-                saleItem.saleId = saleInserted.id
+                saleItem.saleId = saleInserted.id;
                 return saleItem;
             });
             await transactionalEntityManager.save(saleItemsMapped);
@@ -24,8 +24,8 @@ export class SaleRepository {
     async findByDate(date: string): Promise<Sale[]> {
         return this.repository.find({
             where: {
-                date: date
-            }
+                date: date,
+            },
         });
     }
 }

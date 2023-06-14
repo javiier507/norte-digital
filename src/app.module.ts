@@ -12,6 +12,7 @@ import { AccountModule } from './account/account.module';
 import { CustomerModule } from './customer/customer.module';
 import { ProductModule } from './product/product.module';
 import { SaleModule } from './sale/sale.module';
+import { StarterModule } from './starter/starter.module';
 
 @Module({
     imports: [
@@ -36,6 +37,7 @@ import { SaleModule } from './sale/sale.module';
         CustomerModule,
         ProductModule,
         SaleModule,
+        StarterModule,
     ],
     controllers: [AppController],
     providers: [AppService],

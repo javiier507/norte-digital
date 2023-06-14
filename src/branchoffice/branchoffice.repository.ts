@@ -15,6 +15,10 @@ export class BranchOfficeRepository {
     }
 
     async exist(id: number): Promise<boolean> {
-        return await this.repository.countBy({id}) > 0;
+        return (await this.repository.countBy({ id })) > 0;
+    }
+
+    async create(branchOffice: BranchOffice): Promise<BranchOffice> {
+        return this.repository.save(branchOffice);
     }
 }

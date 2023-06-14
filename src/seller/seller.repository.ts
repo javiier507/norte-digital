@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { Seller } from './seller.entity';
+import { Account, AccountAddress } from 'src/account/account.entity';
 
 @Injectable()
 export class SellerRepository {
@@ -13,6 +14,18 @@ export class SellerRepository {
     }
 
     async exist(accountId: number): Promise<boolean> {
-        return await this.repository.countBy({accountId}) > 0;
+        return (await this.repository.countBy({ accountId })) > 0;
+    }
+
+    async createAccountAddress(accountAdress: AccountAddress): Promise<AccountAddress> {
+        return this.repository.manager.save(accountAdress);
+    }
+
+    async createAccount(account: Account): Promise<Account> {
+        return this.repository.manager.save(account);
+    }
+
+    async create(seller: Seller): Promise<Seller> {
+        return this.repository.save(seller);
     }
 }

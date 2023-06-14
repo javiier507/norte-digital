@@ -5,6 +5,6 @@ export class BranchOffice {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ length: 25, unique: true })
+    @Column({ length: 75, unique: false })
     country: string;
 }
