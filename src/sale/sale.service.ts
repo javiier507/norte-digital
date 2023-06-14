@@ -30,7 +30,7 @@ export class SaleService {
         sale.customerId = saleDto.customer.id;
         sale.sellerId= saleDto.seller.id;
         sale.branchOfficeId = saleDto.branchOffice.id;
-        sale.total = 0;
+        sale.total = 0; // computed value
 
         const saleItems: SaleItem[] = saleDto.items.map(item => {
             const saleItem = new SaleItem();
@@ -86,7 +86,7 @@ export class SaleService {
         sale.customer = customer;
         sale.branchOffice = branchOffice;
         sale.items = salesItems;
-        sale.total = entity.total;
+        sale.total = salesItems.reduce((prev, current) => prev + (current.product.price * current.quantity), 0);
         
         return sale;
     }

@@ -3,7 +3,7 @@ import { BadRequestException, Body, Controller, Get, Post, Query } from '@nestjs
 import { SaleService } from './sale.service';
 import { Sale as SaleRequest } from './dto/sale.request';
 import { Sale as SaleResponse } from './dto/sale.response';
-import { ApiCreatedResponse, ApiOkResponse, ApiQuery } from '@nestjs/swagger';
+import { ApiBadRequestResponse, ApiCreatedResponse, ApiOkResponse, ApiQuery } from '@nestjs/swagger';
 import { EntityNotFoundException } from 'src/shared/exceptions';
 
 @Controller('sale')
@@ -12,6 +12,7 @@ export class SaleController {
 
     @Post()
     @ApiCreatedResponse({description: 'Venta registrada', status: 201})
+    @ApiBadRequestResponse({description: 'Hay uno o mas datos invalidos', status: 400})
     async create(@Body() sale: SaleRequest): Promise<void> {
         try {
             await this.service.create(sale);
