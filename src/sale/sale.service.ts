@@ -15,15 +15,13 @@ export class SaleService {
         sale.branchOfficeId = saleDto.branchOffice.id;
         sale.total = 0;
 
-        const saleItem: SaleItem[] = saleDto.items.map(this.mapItem);
+        const saleItems: SaleItem[] = saleDto.items.map(item => {
+            const saleItem = new SaleItem();
+            saleItem.quantity = item.quantity;
+            saleItem.productId = item.product.id;
+            return saleItem; 
+        });
 
-        this.repository.create(sale, saleItem);
-    }
-
-    mapItem(item: SaleItemDto): SaleItem {
-        const saleItem = new SaleItem();
-        saleItem.quantity = item.quantity;
-        saleItem.productId = item.product.id;
-        return saleItem;
+        this.repository.create(sale, saleItems);
     }
 }

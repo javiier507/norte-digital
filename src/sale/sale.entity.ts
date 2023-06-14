@@ -46,6 +46,13 @@ export class SaleItem {
     @Column({type: 'integer'})
     quantity: number;
 
+    @Column({name: 'saleId'})
+    saleId: number;
+
+    @ManyToOne(() => Sale)
+    @JoinColumn()
+    sale: Sale;
+
     @Column({name: 'productId'})
     productId: number;
 
