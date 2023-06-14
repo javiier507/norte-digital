@@ -43,7 +43,7 @@ export class SaleController {
         description: 'Devuelve las ventas de acuerdo a la fecha consultada',
         type: [SaleResponse],
     })
-    @ApiQuery({ name: 'date', description: 'Fecha de la venta' })
+    @ApiQuery({ name: 'date', description: 'Fecha de la venta en formato ISO (YYYY-MM-DD)', example: '2020-12-18' })
     async findByDate(@Query('date') date: string): Promise<SaleResponse[]> {
         return this.service.findByDate(date);
     }

@@ -27,6 +27,10 @@ export class StarterService implements OnModuleInit {
     ) {}
 
     async onModuleInit() {
+
+        if(await this.saleRepository.count() >= 100) {
+            return false;
+        }
         
         let provider = new Provider();
         await this.runIterations(100, async () => {

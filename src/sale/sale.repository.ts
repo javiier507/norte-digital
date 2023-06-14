@@ -28,4 +28,8 @@ export class SaleRepository {
             },
         });
     }
+
+    async count(): Promise<number> {
+        return this.repository.count();
+    }
 }
