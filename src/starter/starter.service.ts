@@ -30,6 +30,7 @@ export class StarterService implements OnModuleInit {
         
         let provider = new Provider();
         await this.runIterations(100, async () => {
+            provider = new Provider();
             let providerAddress = new ProviderAddress();
             providerAddress.street = faker.location.street();
             providerAddress.number = 12;
@@ -47,15 +48,17 @@ export class StarterService implements OnModuleInit {
 
         let branchOffice = new BranchOffice();
         await this.runIterations(10, async () => {
+            branchOffice = new BranchOffice();
             branchOffice.country = faker.location.country();
             branchOffice = await this.branchOfficeRepositoy.create(branchOffice);
         });
 
         let product = new Product();
         await this.runIterations(110, async () => {
+            product = new Product();
             product.name = faker.commerce.productName();
-            product.price = 12;
-            product.stock = 20;
+            product.price = Math.floor(Math.random() * 1000);
+            product.stock = Math.floor(Math.random() * 25);
             product.provider = provider;
             product = await this.productRepository.create(product);
         });
