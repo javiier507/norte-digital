@@ -2,7 +2,7 @@ import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
 
 import { SaleService } from './sale.service';
 import { Sale as SaleRequest } from './dto/sale.request';
-import { Sale } from './sale.entity';
+import { Sale as SaleResponse } from './dto/sale.response';
 
 @Controller('sale')
 export class SaleController {
@@ -15,7 +15,7 @@ export class SaleController {
     }
 
     @Get()
-    async findByDate(): Promise<Sale[]> {
+    async findByDate(): Promise<SaleResponse[]> {
         return this.service.findByDate('2023-01-15');
     }
 }

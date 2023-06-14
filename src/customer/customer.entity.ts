@@ -7,7 +7,7 @@ export class Customer {
     @PrimaryColumn()
     accountId: number;
 
-    @OneToOne(() => Account)
+    @OneToOne(() => Account, {eager: true})
     @JoinColumn()
     account: Account;
 }

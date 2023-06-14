@@ -62,7 +62,7 @@ export class Sale {
     @ApiProperty({description: 'Fecha de la venta', nullable: false})
     date: string;
     
-    @ApiProperty({description: 'Venededor', nullable: false, type: Seller})
+    @ApiProperty({description: 'Vendedor', nullable: false, type: Seller})
     seller: Seller;
     
     @ApiProperty({description: 'Cliente', nullable: false, type: Customer})

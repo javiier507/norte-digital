@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 import { Seller } from "src/seller/seller.entity";
 import { Customer } from "src/customer/customer.entity";
@@ -16,26 +16,26 @@ export class Sale {
     @Column({name: 'sellerAccountId'})
     sellerId: number;
 
-    @ManyToOne(() => Seller)
-    @JoinColumn()
+    @ManyToOne(() => Seller, {eager: true})
     seller: Seller;
 
     @Column({name: 'customerAccountId'})
     customerId: number;
 
-    @ManyToOne(() => Customer)
-    @JoinColumn()
+    @ManyToOne(() => Customer, {eager: true})
     customer: Customer;
 
     @Column({name: 'branchOfficeId'})
     branchOfficeId: number;
 
-    @ManyToOne(() => BranchOffice)
-    @JoinColumn()
+    @ManyToOne(() => BranchOffice, {eager: true})
     branchOffice: BranchOffice;
 
     @Column({type: 'double'})
     total: number;
+
+    @OneToMany(() => SaleItem, (x) => x.sale, {eager: true})
+    items: SaleItem[];
 }
 
 @Entity()
@@ -50,13 +50,11 @@ export class SaleItem {
     saleId: number;
 
     @ManyToOne(() => Sale)
-    @JoinColumn()
     sale: Sale;
 
     @Column({name: 'productId'})
     productId: number;
 
-    @ManyToOne(() => Product)
-    @JoinColumn()
+    @ManyToOne(() => Product, {eager: true})
     product: Product;
 }
