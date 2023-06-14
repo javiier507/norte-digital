@@ -8,7 +8,11 @@ import { Customer } from './customer.entity';
 export class CustomerRepository {
     constructor(@InjectRepository(Customer) private readonly repository: Repository<Customer>) {}
 
-    async findAll(): Promise<Array<Customer>> {
+    async findAll(): Promise<Customer[]> {
         return this.repository.find();
+    }
+
+    async exist(accountId: number): Promise<boolean> {
+        return await this.repository.countBy({accountId}) > 0;
     }
 }

@@ -4,12 +4,27 @@ import { SaleRepository } from './sale.repository';
 import { Sale, SaleItem } from './sale.entity';
 import { Sale as SaleRequest } from './dto/sale.request';
 import { Sale as SaleResponse, SaleItem as SaleItemResponse, Product as ProductResponse, BranchOffice as BranchOfficeResponse, Customer as CustomerResponse, Seller as SellerResponse } from './dto/sale.response';
+import { EntityNotFoundException } from 'src/shared/exceptions';
+import { CustomerRepository } from 'src/customer/customer.repository';
+import { SellerRepository } from 'src/seller/seller.repository';
+import { BranchOfficeRepository } from 'src/branchoffice/branchoffice.repository';
 
 @Injectable()
 export class SaleService {
-    constructor(private readonly repository: SaleRepository){}
+    constructor(
+        private readonly saleRepositoru: SaleRepository,
+        private readonly customerRepository: CustomerRepository,
+        private readonly sellerRepository: SellerRepository,
+        private readonly branchOfficeRepository: BranchOfficeRepository
+    ){}
 
     async create(saleDto: SaleRequest): Promise<void> {
+        if(!await this.customerRepository.exist(saleDto.customer.id)) throw new EntityNotFoundException('ID del cliente invalido');
+
+        if(!await this.sellerRepository.exist(saleDto.seller.id)) throw new EntityNotFoundException('ID del vendedor invalido');
+
+        if(!await this.branchOfficeRepository.exist(saleDto.branchOffice.id)) throw new EntityNotFoundException('ID de la sucursal invalido');
+
         let sale = new Sale();
         sale.date = saleDto.date;
         sale.customerId = saleDto.customer.id;
@@ -24,11 +39,11 @@ export class SaleService {
             return saleItem; 
         });
 
-        this.repository.create(sale, saleItems);
+        this.saleRepositoru.create(sale, saleItems);
     }
 
     async findByDate(date: string): Promise<SaleResponse[]> {
-        const sales = await this.repository.findByDate(date);
+        const sales = await this.saleRepositoru.findByDate(date);
         return sales.map(this.mapSales);
     }
 

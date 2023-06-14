@@ -12,5 +12,6 @@ import { SellerService } from './seller.service';
     controllers: [SellerController],
     imports: [AccountModule, TypeOrmModule.forFeature([Seller])],
     providers: [SellerRepository, SellerService],
+    exports: [SellerRepository]
 })
 export class SellerModule {}

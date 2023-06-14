@@ -11,4 +11,8 @@ export class SellerRepository {
     async findAll(): Promise<Array<Seller>> {
         return this.repository.find();
     }
+
+    async exist(accountId: number): Promise<boolean> {
+        return await this.repository.countBy({accountId}) > 0;
+    }
 }

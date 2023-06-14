@@ -10,5 +10,6 @@ import { BranchOfficeRepository } from './branchoffice.repository';
     controllers: [BranchofficeController],
     imports: [TypeOrmModule.forFeature([BranchOffice])],
     providers: [BranchOfficeRepository, BranchofficeService],
+    exports: [BranchOfficeRepository]
 })
 export class BranchofficeModule {}

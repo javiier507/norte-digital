@@ -1,19 +1,25 @@
-import { Body, Controller, Get, HttpCode, Post, Query } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, Post, Query } from '@nestjs/common';
 
 import { SaleService } from './sale.service';
 import { Sale as SaleRequest } from './dto/sale.request';
 import { Sale as SaleResponse } from './dto/sale.response';
 import { ApiCreatedResponse, ApiOkResponse, ApiQuery } from '@nestjs/swagger';
+import { EntityNotFoundException } from 'src/shared/exceptions';
 
 @Controller('sale')
 export class SaleController {
     constructor(private readonly service: SaleService){}
 
     @Post()
-    @HttpCode(201)
-    @ApiCreatedResponse({description: 'Venta registrada'})
+    @ApiCreatedResponse({description: 'Venta registrada', status: 201})
     async create(@Body() sale: SaleRequest): Promise<void> {
-        this.service.create(sale);
+        try {
+            await this.service.create(sale);
+        } catch (error) {
+            if(error instanceof EntityNotFoundException) {                
+                throw new BadRequestException(error.message);
+            }
+        }
     }
 
     @Get()
