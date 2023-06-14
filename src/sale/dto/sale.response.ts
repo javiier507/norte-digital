@@ -74,5 +74,6 @@ export class Sale {
     @ApiProperty({description: 'Lista de productos vendidos', nullable: true, type: [SaleItem]})
     items: SaleItem[];
     
+    @ApiProperty({description: 'Monto total de la venta', nullable: false})
     total: number;
 }
