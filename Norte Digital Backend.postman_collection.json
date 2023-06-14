@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "a93418a2-81cb-4405-9602-c3abba90ae94",
+		"name": "Norte Digital Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8120724"
+	},
+	"item": [
+		{
+			"name": "Proveedores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/provider",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"provider"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/product",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sucursales",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/branch-office",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"branch-office"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Venededores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/seller",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"seller"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/customer",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Venta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2023-01-15\",\n  \"seller\": {\n    \"id\": 1\n  },\n  \"customer\": {\n    \"id\": 1\n  },\n  \"branchOffice\": {\n    \"id\": 1\n  },\n  \"items\": [\n    {\n      \"quantity\": 1,\n      \"product\": {\n        \"id\": 1\n      }\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/sale",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"sale"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

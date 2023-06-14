@@ -11,7 +11,7 @@ export class Sale {
     id: number;
 
     @Column({type: 'date'})
-    date: Date;
+    date: string;
 
     @ManyToOne(() => Seller)
     @JoinColumn()
@@ -23,14 +23,14 @@ export class Sale {
 
     @ManyToOne(() => BranchOffice)
     @JoinColumn()
-    branchOffice: Customer;
+    branchOffice: BranchOffice;
 
     @Column({type: 'double'})
     total: number;
 }
 
 @Entity()
-export class SaleDetail {
+export class SaleItem {
     @PrimaryGeneratedColumn()
     id: number;
 
