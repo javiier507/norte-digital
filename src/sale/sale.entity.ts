@@ -10,7 +10,7 @@ export class Sale {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({type: 'datetime'})
+    @Column({type: 'date'})
     date: Date;
 
     @ManyToOne(() => Seller)

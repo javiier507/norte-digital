@@ -3,7 +3,7 @@ import { Controller, Get } from '@nestjs/common';
 import { BranchofficeService } from './branchoffice.service';
 import { BranchOffice } from './branchoffice.entity';
 
-@Controller('branchoffice')
+@Controller('branch-office')
 export class BranchofficeController {
     constructor(private readonly branchOfficeService: BranchofficeService) {}
 
