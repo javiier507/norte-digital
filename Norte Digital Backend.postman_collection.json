@@ -358,7 +358,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"date\": \"2023-01-15\",\n  \"seller\": {\n    \"id\": 2\n  },\n  \"customer\": {\n    \"id\": 1\n  },\n  \"branchOffice\": {\n    \"id\": 3\n  },\n  \"items\": [\n    {\n      \"quantity\": 1,\n      \"product\": {\n        \"id\": 4\n      }\n    },\n    {\n      \"quantity\": 3,\n      \"product\": {\n        \"id\": 3\n      }\n    }\n  ]\n}",
+					"raw": "{\n  \"date\": \"2023-06-15\",\n  \"seller\": {\n    \"id\": 19\n  },\n  \"customer\": {\n    \"id\": 21\n  },\n  \"branchOffice\": {\n    \"id\": 4\n  },\n  \"items\": [\n    {\n      \"quantity\": 1,\n      \"product\": {\n        \"id\": 40\n      }\n    },\n    {\n      \"quantity\": 3,\n      \"product\": {\n        \"id\": 30\n      }\n    }\n  ]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -383,7 +383,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{HOST}}/sale?date=2023-01-15",
+					"raw": "{{HOST}}/sale?date=2023-06-15",
 					"host": [
 						"{{HOST}}"
 					],
@@ -393,7 +393,7 @@
 					"query": [
 						{
 							"key": "date",
-							"value": "2023-01-15"
+							"value": "2023-06-15"
 						}
 					]
 				}
@@ -405,7 +405,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{HOST}}/sale?date=2023-01-15",
+							"raw": "{{HOST}}/sale?date=2023-06-15",
 							"host": [
 								"{{HOST}}"
 							],
@@ -415,7 +415,7 @@
 							"query": [
 								{
 									"key": "date",
-									"value": "2023-01-15"
+									"value": "2023-06-15"
 								}
 							]
 						}
@@ -434,15 +434,15 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "440"
+							"value": "579"
 						},
 						{
 							"key": "ETag",
-							"value": "W/\"1b8-8KZsNDSt7M2e9RzfIRuRMH01x2U\""
+							"value": "W/\"243-2hgw38tmn547+9l4cEFMjIvdNuA\""
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 14 Jun 2023 19:09:28 GMT"
+							"value": "Thu, 15 Jun 2023 01:34:35 GMT"
 						},
 						{
 							"key": "Connection",
@@ -454,7 +454,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n        \"date\": \"2023-01-15\",\n        \"seller\": {\n            \"rut\": \"DDEEFFGG\",\n            \"name\": \"Josefa\",\n            \"lastname\": \"Pietra\",\n            \"telephone\": \"55555-1\",\n            \"birthdate\": \"1991-04-20\",\n            \"email\": \"sucess@mail.com\"\n        },\n        \"customer\": {\n            \"rut\": \"AABBCCDD\",\n            \"name\": \"Carlos\",\n            \"lastname\": \"Penalba\",\n            \"telephone\": \"333-4444\"\n        },\n        \"branchOffice\": {\n            \"country\": \"Chile\"\n        },\n        \"items\": [\n            {\n                \"quantity\": 3,\n                \"product\": {\n                    \"name\": \"Headphone\",\n                    \"price\": 30,\n                    \"stock\": 10\n                }\n            },\n            {\n                \"quantity\": 1,\n                \"product\": {\n                    \"name\": \"Screen\",\n                    \"price\": 200,\n                    \"stock\": 5\n                }\n            }\n        ],\n        \"total\": 290\n    }\n]"
+					"body": "[\n    {\n        \"date\": \"2023-06-15\",\n        \"seller\": {\n            \"rut\": \"52500cab-692c-4482-b3f0-0911726ea555\",\n            \"name\": \"Adaline\",\n            \"lastname\": \"Gutkowski\",\n            \"telephone\": \"401.268.2939\",\n            \"birthdate\": \"1980-10-25T11:33:58.733Z\",\n            \"email\": \"Britney_Rosenbaum@gmail.com\"\n        },\n        \"customer\": {\n            \"rut\": \"73c089bc-e55b-4425-9e6d-28e2dd5f73f1\",\n            \"name\": \"Yoshiko\",\n            \"lastname\": \"Krajcik\",\n            \"telephone\": \"1-275-564-1424 x0700\"\n        },\n        \"branchOffice\": {\n            \"country\": \"Djibouti\"\n        },\n        \"items\": [\n            {\n                \"quantity\": 1,\n                \"product\": {\n                    \"name\": \"Practical Steel Ball\",\n                    \"price\": 417,\n                    \"stock\": 24\n                }\n            },\n            {\n                \"quantity\": 3,\n                \"product\": {\n                    \"name\": \"Intelligent Steel Gloves\",\n                    \"price\": 764,\n                    \"stock\": 24\n                }\n            }\n        ],\n        \"total\": 2709\n    }\n]"
 				}
 			]
 		}
