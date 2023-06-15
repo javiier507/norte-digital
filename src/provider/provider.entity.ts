@@ -13,7 +13,7 @@ export class ProviderAddress {
     @Column({ length: 50 })
     neighborhood: string;
 
-    @Column({ length: 25 })
+    @Column({ length: 50 })
     city: string;
 }
 
