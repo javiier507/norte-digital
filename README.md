@@ -60,6 +60,9 @@ http://localhost:3000/apidoc#/
 6. Consulta de ventas por la fecha utilizada anteriormente (2023-06-15).
 <img width="852" alt="Captura de Pantalla 2023-06-14 a la(s) 8 36 51 p  m" src="https://github.com/javiier507/norte-digital/assets/8405694/3e2fd8b8-7e6d-4968-ae3b-ae85c385bf00">
 
+## Diagrama Entidad Relacion
+
+![backend_db](https://github.com/javiier507/norte-digital/assets/8405694/fdd55b96-7387-441b-91d0-f0848e0bbce1)
 
 ## Finalizar contenedores
 ```bash
