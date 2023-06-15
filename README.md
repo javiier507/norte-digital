@@ -54,6 +54,13 @@ http://localhost:3000/apidoc#/
 4. El repositorio tambien incluye un colección de POSTMAN que puede usar para sus pruebas
 <img width="1392" alt="Captura de Pantalla 2023-06-14 a la(s) 8 24 45 p  m" src="https://github.com/javiier507/norte-digital/assets/8405694/278aecef-0e84-454f-ad1d-410196114daa">
 
+5. Registro de ventas. Si el registro es exitoso recibira un HTTP 201. Si algunos de los ID no existe recibira un HTTP 400.
+<img width="858" alt="Captura de Pantalla 2023-06-14 a la(s) 8 36 28 p  m" src="https://github.com/javiier507/norte-digital/assets/8405694/fd625583-3a0f-43da-9c08-9ed6cee82470">
+
+6. Consulta de ventas por la fecha utilizada anteriormente (2023-06-15).
+<img width="852" alt="Captura de Pantalla 2023-06-14 a la(s) 8 36 51 p  m" src="https://github.com/javiier507/norte-digital/assets/8405694/3e2fd8b8-7e6d-4968-ae3b-ae85c385bf00">
+
+
 ## Finalizar contenedores
 ```bash
 docker-compose -f docker-compose.demo.yml down
