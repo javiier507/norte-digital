@@ -1,0 +1,33 @@
+version: '3.9'
+
+networks:
+    local:
+
+services:
+    
+    database:
+        image: mysql:8
+        ports:
+            - 3306:3306
+        volumes:
+            - ./data-demo/db:/var/lib/mysql
+        networks:
+            - local
+        environment:
+            - MYSQL_ROOT_PASSWORD=root_password
+            - MYSQL_USER=backend_user
+            - MYSQL_PASSWORD=backend_pass
+            - MYSQL_DATABASE=backend_db
+
+    api:
+        image: profiledev06/backend-test:1.0.0
+        ports:
+            - 3000:3000
+        networks:
+            - local
+        environment:
+            - DATABASE_HOST=database
+            - DATABASE_PORT=3306
+            - MYSQL_USER=backend_user
+            - MYSQL_PASSWORD=backend_pass
+            - MYSQL_DATABASE=backend_db
