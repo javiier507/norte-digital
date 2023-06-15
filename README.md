@@ -51,6 +51,8 @@ http://localhost:3000/apidoc#/
 3. Para registrar una venta necesita asignar los ID de Cliente, Venededor, Sucursal y Producto.
 <img width="1392" alt="Captura de Pantalla 2023-06-14 a la(s) 7 56 51 p  m" src="https://github.com/javiier507/norte-digital/assets/8405694/101f9c10-9522-48b7-8331-819ceaefdec4">
 
+4. El repositorio tambien incluye un colección de POSTMAN que puede usar para sus pruebas
+<img width="1392" alt="Captura de Pantalla 2023-06-14 a la(s) 8 24 45 p  m" src="https://github.com/javiier507/norte-digital/assets/8405694/278aecef-0e84-454f-ad1d-410196114daa">
 
 ## Finalizar contenedores
 ```bash
