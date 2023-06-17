@@ -15,8 +15,15 @@ git clone https://github.com/javiier507/norte-digital.git
 # contenedor de base de datos
 docker-compose -f docker-compose.demo.yml up -d database
 
-# esperar unos 20 segundos hasta que el contenedor de base de datos termine de iniciar
+# esperar unos 30 segundos hasta que el contenedor de base de datos termine de iniciar
 
+# comprobar que el contenedor esta corriendo sobre el puerto 3306
+docker-compose -f docker-compose.demo.yml ps
+```
+<img width="943" alt="Captura de Pantalla 2023-06-16 a la(s) 6 56 33 p  m" src="https://github.com/javiier507/norte-digital/assets/8405694/06c4ba09-325e-4c27-93f4-5d0f13782f63">
+
+
+```bash
 # contenedor de la api
 docker-compose -f docker-compose.demo.yml up api
 
