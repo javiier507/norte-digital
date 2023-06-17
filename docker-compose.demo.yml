@@ -7,8 +7,8 @@ services:
     
     database:
         image: mysql:8
-        ports:
-            - 3306:3306
+        expose:
+            - 3306
         volumes:
             - ./data-demo/db:/var/lib/mysql
         networks:
