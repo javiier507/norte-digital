@@ -76,6 +76,14 @@ http://localhost:3000/apidoc#/
 docker-compose -f docker-compose.demo.yml down
 ```
 
+## Tecnologías Utilizadas
+
+* [Nest.js](https://nestjs.com/): Framework Node.js para desarrollo de aplicaciones (APIS, Webs, Microservicios)
+* [Typescript](https://www.typescriptlang.org/): TypeScript es un lenguaje de programación construido a un nivel superior de JavaScript (JS).
+* [Nest.js Swagger](https://github.com/nestjs/swagger): Modulo de Nest.js para integración con Swagger. Permite documentar APIS REST de forma más ágil.
+* [MySQL 8](https://dev.mysql.com/): Base de datos relacional.
+* [TypeORM](https://typeorm.io/): Libreria para integración con diferentes base de datos relacionales como MySQL, PostgreSQL y no relacionales como MongoDB.
+
 ## Autor
 
 Carlos Peñalba
